@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.liser.oauth2.web.configuration.Oauth2WebAutoConfiguration

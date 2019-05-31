@@ -1,0 +1,46 @@
+server:
+  port: 10020
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      # 配置路由规则
+      routes:
+      # 采用自定义路由 ID（有固定用法，不同的 id 有不同的功能，详见：
+      # https://cloud.spring.io/spring-cloud-gateway/2.0.x/single/spring-cloud-gateway.html#gateway-route-filters）
+      - id: YCDL-ADMIN
+        # 采用 LoadBalanceClient 方式请求，以 lb:// 开头，后面的是注册在 Nacos 上的服务名
+        uri: lb://ycdl-admin
+        # Predicate 翻译过来是“谓词”的意思，必须，主要作用是匹配用户的请求，有很多种用法
+        predicates:
+        # Method 方法谓词，这里是匹配 GET 和 POST 请求
+        - Path=/admin/**
+        filters:
+        - StripPrefix=1
+
+      - id: LISER-AUTHORIZATION
+        uri: lb://liser-authorization
+        predicates:
+        - Path=/auth/**
+        filters:
+        - GatewaySwaggerHeaderFilter
+        - StripPrefix=1
+
+      - id: LISER-UUS
+        uri: lb://liser-uus
+        predicates:
+        - Path=/uus/**
+        filters:
+        - GatewaySwaggerHeaderFilter
+        - StripPrefix=1
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:8081/.well-known/jwks.json

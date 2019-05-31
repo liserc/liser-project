@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.liser.oauth2.token.configuration.Oauth2TokenAutoConfiguration

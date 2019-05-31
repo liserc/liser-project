@@ -1,0 +1,28 @@
+server:
+  port: 10020
+
+spring:
+  application:
+    name: liser-leaf
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+dubbo:
+  application:
+    qos-enable: false
+  config:
+    multiple: true
+  scan:
+    base-packages: com.liser.leaf.rpc
+  protocols:
+    dubbo:
+      name: dubbo
+      port: -1
+#    rest:
+#      name: rest
+#      port: 7070
+
+  registry:
+    address: spring-cloud://localhost
