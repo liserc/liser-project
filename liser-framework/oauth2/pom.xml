@@ -5,12 +5,12 @@
     <parent>
         <artifactId>liser-framework</artifactId>
         <groupId>com.liser.boot</groupId>
-        <version>0.0.3-SNAPSHOT</version>
+        <version>0.0.1-RELEASE</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>oauth2</artifactId>
-    <version>0.0.3-SNAPSHOT</version>
+    <version>0.0.1-RELEASE</version>
     <modules>
         <module>model</module>
         <module>token-store</module>

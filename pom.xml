@@ -13,7 +13,7 @@
 
     <groupId>com.liser.boot</groupId>
     <artifactId>liser-project</artifactId>
-    <version>0.0.3-SNAPSHOT</version>
+    <version>0.0.1-RELEASE</version>
     <name>liser-project</name>
     <description>Demo project for Spring Boot</description>
 
@@ -54,7 +54,7 @@
             <dependency>
                 <groupId>com.liser.boot</groupId>
                 <artifactId>liser-dependencies</artifactId>
-                <version>0.0.3-SNAPSHOT</version>
+                <version>0.0.1-RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
